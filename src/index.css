@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #05070d;
+    color: #e2e8f0;
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Outfit', sans-serif;
+  }
+}
+
+/* 3D Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Glassmorphism 2.0 with Animated Gradient Borders */
+.glass-panel-3d {
+  background: rgba(14, 19, 34, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.glass-glow-card {
+  position: relative;
+  background: rgba(13, 17, 30, 0.85);
+  backdrop-filter: blur(24px);
+  border-radius: 1.25rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.4), transparent 50%, rgba(139, 92, 246, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Kinetic Gradient Text Utilities */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #00f0ff 0%, #38bdf8 30%, #818cf8 70%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradient-x 6s ease infinite;
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 40%, #f97316 80%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradient-x 5s ease infinite;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cyber Scanning Line Animation */
+.scanline {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 240, 255, 0.04) 50%,
+    rgba(0, 240, 255, 0.04)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff88;
+  box-shadow: 0 0 10px #00f0ff;
+}
